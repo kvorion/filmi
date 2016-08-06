@@ -96,11 +96,10 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to Filmi. " \
-                    "Please ask me about the director of your favorite movie"
+    speech_output = "Welcome to Film Expert. Please ask me about the director of your favorite movie"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
-    reprompt_text = "Please repeat your question."
+    reprompt_text = "For example please ask me who is the director of Inception"
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -109,6 +108,10 @@ def get_welcome_response():
 def get_director(intent, session):
     session_attributes = {}
     reprompt_text = None
+
+
+    print("Intent:")
+    print(intent)
 
     if "Movie" in intent["slots"]:
         movie = intent["slots"]["Movie"]["value"]#session['attributes']['Movie']
@@ -134,7 +137,7 @@ def get_director(intent, session):
     # the user. If the user does not respond or says something that is not
     # understood, the session will end.
     return build_response(session_attributes, build_speechlet_response(
-        intent['name'], speech_output, reprompt_text, should_end_session))
+        'Get Director', speech_output, reprompt_text, should_end_session))
 
 def get_director_for_movie(movie):
 	#movie: https://api.themoviedb.org/3/search/movie?query=titanic&api_key=c35494259ebd7299960cebd8ebaef471
@@ -149,7 +152,15 @@ def get_director_for_movie(movie):
 			return crew_member["name"]
 # --------------- Helpers that build all of the responses ----------------------
 
+
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    '''
+    Method builds the speechlet response
+    :param title: The name of the skill
+    :param output: The speech output
+    :param reprompt_text: Any reprompt text
+    :param should_end_session: Should the session be ended?
+    '''
     return {
         'outputSpeech': {
             'type': 'PlainText',
@@ -157,8 +168,8 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
         },
         'card': {
             'type': 'Simple',
-            'title': 'SessionSpeechlet - ' + title,
-            'content': 'SessionSpeechlet - ' + output
+            'title': title,
+            'content': output
         },
         'reprompt': {
             'outputSpeech': {
