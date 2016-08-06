@@ -1,0 +1,58 @@
+{
+  "intents": [
+    {
+      "intent": "GetDirector",
+      "slots": [
+        {
+          "name": "Movie",
+          "type": "LIST_OF_MOVIES"
+        }
+      ]
+    }
+  ]
+}
+
+
+
+LIST_OF_MOVIES : CUSTOM TYPE
+
+the godfather
+a few good men
+titanic
+harry potter and the prisoner of azkaban
+lord of the rings fellowship of the ring
+the shawshank redemption
+schindler's list
+raging bull
+casablanca
+citizen kane
+gone with the wind
+the wizard of oz
+one flew over the cuckoo's nest
+lawrence of arabia
+vertigo
+psycho
+the godfather part II
+on the waterfront
+sunset blvd.
+forrest gump
+the sound of music
+before sunrise
+bridget jone's diary
+high fidelity
+
+
+utterances:
+who is the director of {Movie}
+who is the director for {Movie}
+tell me the director of {Movie}
+tell me the director for {Movie}
+who directed {Movie}?
+who is the director of the movie {Movie}
+who is the director for the movie {Movie}
+to tell me the director of {Movie}
+to tell me the director for {Movie}
+for the director of {Movie}
+for the director for {Movie}
+for the director of the movie {Movie}
+

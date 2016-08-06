@@ -1,0 +1,12 @@
+GetDirector	who is the director of {Movie}
+GetDirector	who is the director for {Movie}
+GetDirector	tell me the director of {Movie}
+GetDirector	tell me the director for {Movie}
+GetDirector	who directed {Movie}?
+GetDirector	who is the director of the movie {Movie}
+GetDirector	who is the director for the movie {Movie}
+GetDirector	to tell me the director of {Movie}
+GetDirector	to tell me the director for {Movie}
+GetDirector	for the director of {Movie}
+GetDirector	for the director for {Movie}
+GetDirector	for the director of the movie {Movie}
